@@ -21,6 +21,7 @@ with open(budget_data_csv, 'r') as csvfile:
     print(header)
     values = []
     difference = []
+    # difference.append(0)
 
     print(values)
 
@@ -29,7 +30,10 @@ with open(budget_data_csv, 'r') as csvfile:
         values.append(int(row[1]))
 
     for i in range(len(values)-1):
-        difference.append(int(values[i]) - int(values[i + 1]))
+        difference.append(int(values[i+1]) - int(values[i]))
+
+    
+    
 
 # print(months)
 # # print(len(months))
@@ -39,10 +43,11 @@ print(type(values[0]))
 print(difference)
 print(max(difference))
 print(min(difference))
+print(sum(difference)/len(difference))
 print(sum(values))
 print(int(sum(values)/len(values)))
-
-result.append()
+sum_table = {m:d for m,d in zip(months[1:], difference)}
+print(sum_table)
 
 
 
