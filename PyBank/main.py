@@ -47,7 +47,7 @@ Avg_Change = print(f'Average Change: ${round(sum(difference)/len(difference),2)}
 Grt_Increase = print(f'Greatest Increase in Profits: {sum_table[max(sum_table)]} (${max(sum_table)})')
 Grt_Decrease = print(f'Greatest Decrease in Profits: {sum_table[min(sum_table)]} (${min(sum_table)})')
 
-output_path = os.path.join("Resources", "output.txt")
+output_path = os.path.join("Analysis", "output.txt")
 
 with open(output_path, 'w') as textfile:
 
