@@ -9,6 +9,7 @@ Candidates_Correy = []
 Candidates_Khan = []
 Candidates_Tooley = []
 
+
 election_data_csv = os.path.join("Resources", "election_data.csv")
 
 with open(election_data_csv, 'r') as csvfile:
@@ -27,19 +28,24 @@ with open(election_data_csv, 'r') as csvfile:
         elif row[2] == "O'Tooley":
             Candidates_Tooley.append(row[0])
     
-    def maximum_votes(x):
-        Khan = len(Candidates_Khan)
-        Li = len(candidates_Li)
-        Correy = len(Candidates_Correy)
-        OTooley = len(Candidates_Tooley)
-        if max(Khan, Li, Correy, OTooley) is Khan:
-            x == "Khan"
-        elif max(Khan, Li, Correy, OTooley) is Li:
-            x == "Li"
-        elif max(Khan, Li, Correy, OTooley) is Correy:
-            x == "Correy"
-        elif max(Khan, Li, Correy, OTooley) is OTooley:
-            x == "O\'Tooley"     
+    
+    K = len(Candidates_Khan)
+    L = len(candidates_Li)
+    C = len(Candidates_Correy)
+    O = len(Candidates_Tooley)
+    
+    def max_votes(K, L, C, O):
+        if max(K, L, C, O)==K:
+            Winner = "Khan"
+        elif max(K, L, C, O)==L:
+            Winner = "Li"
+        elif max(K, L, C, O)==C:
+            Winner = "Correy"
+        else: 
+            Winner = "O\'Tooley"
+        return Winner    
+
+        
 
 # print(len(candidates_Li))
 # print(len(Candidates_Correy))
@@ -47,8 +53,10 @@ with open(election_data_csv, 'r') as csvfile:
 # print(len(Candidates_Tooley))
 # print(f'{len(candidates_Li)+len(Candidates_Correy)+len(Candidates_Khan)+len(Candidates_Tooley)}')
 # print(len(candidates))
-# print(f'Khan: {len(Candidates_Khan)/len(candidates)*100} ({len(Candidates_Khan)})')
-# print(f'Correy: {len(Candidates_Correy)/len(candidates)} ({len(Candidates_Correy)})')
-# print(f'Li: {len(candidates_Li)/len(candidates)} ({len(candidates_Li)})')
-# print(f'O\'Tooley: {len(Candidates_Tooley)/len(candidates)} ({len(Candidates_Tooley)})')
-print(f'Winner: {maximum_votes(x)}')
+print(f'Khan: {round((len(Candidates_Khan)/len(candidates)*100), 4)} % ({len(Candidates_Khan)})')
+# print(f'Correy: {round((len(Candidates_Correy)/len(candidates)*100), 3)} % ({len(Candidates_Correy)})')
+# print(f'Li: {round((len(candidates_Li)/len(candidates)*100),3)}% ({len(candidates_Li)})')
+# print(f'O\'Tooley: {round((len(Candidates_Tooley)/len(candidates)*100), 3)} % ({len(Candidates_Tooley)})')
+# print(f'Winner: {max_votes(K, L, C, O)}')
+
+print(f'{round((len(Candidates_Khan)/len(candidates)*100), 2)}')
