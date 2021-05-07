@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+# PyPoll/first_code.py
 
 # C extensions
 *.so
